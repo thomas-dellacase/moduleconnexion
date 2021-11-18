@@ -2,7 +2,12 @@
 session_start();
 require 'db.php';
 
-$_SESSION['user'] = '';
+if(isset($_SESSION['user'])){
+    echo "vous etes deja connecter". $_SESSION['user']. "<br>";
+}
+else{
+    $_SESSION['user'] = '';
+}
 
 
 if(isset($_POST['submit'])){

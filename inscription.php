@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'db.php';
-
+var_dump($_SESSION['user']);
 
     if(isset($_POST['submit'])){
         try{
