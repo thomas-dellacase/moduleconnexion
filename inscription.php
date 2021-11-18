@@ -1,10 +1,10 @@
 <?php
+session_start();
 require 'db.php';
 
 
     if(isset($_POST['submit'])){
         try{
-            //$bdd = new PDO("mysql:host=$host.;dbname=$database", $username, $password);
             $inscrip = new PDO($bdd, $username, $Dbpassword);
             $inscrip->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -42,13 +42,15 @@ require 'db.php';
                 
                 if($stmt->execute()){
                     echo "inscripiption reussi";
-                }else{
+                }
+                else{
                     $error = "Erreur: ". $e->getMessage();
                     echo $error;
                 }
             }
 
-        }catch(PDOException $e){
+        }
+        catch(PDOException $e){
             $error = "Erreur: ". $e->getMessage();
             echo $error;
         }
@@ -66,13 +68,19 @@ require 'db.php';
 </head>
 <body>
 <main>
+<nav>
+        <a href="connexion.php">Connexion</a>
+        <a href="inscription.php">Inscription</a>
+        <a href="profil.php">Profils</a>
+        <a href="deconnection.php">Deco</a>
+    </nav>
         <article>
-            <form method="POST" action="connexion.php">
-                <input type="text" name="login" placeholder="Login"></input>
-                <input type="text" name="prenom" placeholder="Prenom"></input>
-                <input type="text" name="nom" placeholder="nom"></input>
-                <input type="password" name="pwd" placeholder="Password"></input>
-                <input type="password" name="confpwd" placeholder=" Confim Password"></input>
+            <form method="POST" action="inscription.php">
+                <input type="text" name="login" placeholder="Login" required="required"></input>
+                <input type="text" name="prenom" placeholder="Prenom" required="required"></input>
+                <input type="text" name="nom" placeholder="nom" required="required"></input>
+                <input type="password" name="pwd" placeholder="Password" required="required"></input>
+                <input type="password" name="confpwd" placeholder=" Confim Password" required="required"></input>
                 <button type="submit" name="submit">Inscripiption</button>
             </form>
         </article>

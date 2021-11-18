@@ -4,6 +4,7 @@ require 'db.php';
 
 $_SESSION['user'] = '';
 
+
 if(isset($_POST['submit'])){
     try{
         $connect = new PDO($bdd, $username, $Dbpassword);
@@ -17,7 +18,7 @@ if(isset($_POST['submit'])){
 
         $pwd = password_hash($pwd, PASSWORD_BCRYPT);
 
-        $sql = "SELECT count(id) FROM utilisateurs WHERE login = '$login' and password = '$pwd'";
+        $sql = "SELECT count(id) FROM utilisateurs WHERE login = '$login' AND password = '$pwd'";
         $stmt = $connect->prepare($sql);
         $stmt->bindValue(':login', $login);
         $stmt->bindValue(':password', $pwd);
@@ -53,6 +54,12 @@ var_dump($_SESSION)
 </head>
 <body>
     <main>
+    <nav>
+        <a href="connexion.php">Connexion</a>
+        <a href="inscription.php">Inscription</a>
+        <a href="profil.php">Profils</a>
+        <a href="deconnection.php">Deco</a>
+    </nav>
         <article>
             <form method="POST" action="connexion.php">
                 <input type="text" name="login"></input>
