@@ -76,12 +76,10 @@ if(isset($_POST['submit'])){
         </nav>
     </header>
     <main>
+      
+      <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']. "<br>";} ?></h1>
+
         <article id="artco">
-            <?php
-                if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
-                    echo "vous etes deja connecter". $_SESSION['user']. "<br>";
-                }
-            ?>
             <div class="container">
                 <h2 class="text-center">Connexion</h2>
             <form method="POST" action="connexion.php">
@@ -178,6 +176,7 @@ if(isset($_POST['submit'])){
       tout ceci est totalement facultatif et surtout, ne va concerner que des "gros joueurs" qui font beaucoup de parties via roll20.
 
       </p>
+      <a class="nav-item nav-link" href="https://github.com/thomas-dellacase/moduleconnexion">Depot github</a>
     </section>
 </footer>
 </body>

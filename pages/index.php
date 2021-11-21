@@ -109,6 +109,7 @@ session_start();
       tout ceci est totalement facultatif et surtout, ne va concerner que des "gros joueurs" qui font beaucoup de parties via roll20.
 
       </p>
+      <a class="nav-item nav-link" href="https://github.com/thomas-dellacase/moduleconnexion">Depot github</a>
     </section>
 </footer>
 <!-- Footer -->

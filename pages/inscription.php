@@ -88,7 +88,8 @@ require("../db/db.php");
     </header>
     </header>
 <main>
-    <h1 id="title"><?php if(isset($insok)){ echo $insok;}?></h1>
+    <h1 id="title"><?php if(isset($insok)){ echo $insok;
+                        }elseif(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja inscrits ". $_SESSION['user']. "<br>";}?></h1>
         <article id="artins">
             <div class="container">
                 <h2 class="text-center">Inscription</h2>
@@ -200,6 +201,7 @@ require("../db/db.php");
       tout ceci est totalement facultatif et surtout, ne va concerner que des "gros joueurs" qui font beaucoup de parties via roll20.
 
       </p>
+      <a class="nav-item nav-link" href="https://github.com/thomas-dellacase/moduleconnexion">Depot github</a>
     </section>
 </footer>
 </body>
