@@ -12,7 +12,7 @@ if(isset($_SESSION['user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<header>
     <nav>
         <a href="connexion.php">Connexion</a>
         <a href="inscription.php">Inscription</a>
@@ -22,5 +22,15 @@ if(isset($_SESSION['user'])){
                                         echo 'Page admin';
                                     }else{ echo '';} ?></a>
     </nav>
+</header>
+<body>
+    <main>
+        <article>
+
+        </article>
+    </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>
