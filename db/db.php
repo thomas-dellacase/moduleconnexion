@@ -1,9 +1,9 @@
 <?php
         
-    $host = 'localhost';
-    $username = 'root';
-    $Dbpassword = 'root';
-    $database = 'moduleconnexion';
+    $host = 'localhost:3306';
+    $username = 'thomas-dellacase';
+    $Dbpassword = 'ProjetPP2';
+    $database = 'thomas-dellacase_moduleconnexion';
     $bdd = '';
 
     try{
