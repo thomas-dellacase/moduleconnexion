@@ -1,6 +1,8 @@
 <?php
 session_start();
-var_dump($_SESSION['user']);
+if(isset($_SESSION['user'])){
+    var_dump($_SESSION['user']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +18,9 @@ var_dump($_SESSION['user']);
         <a href="inscription.php">Inscription</a>
         <a href="profil.php">Profils</a>
         <a href="deconnection.php">Deco</a>
+        <a href="admin.php"><?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'ADMIN'){ 
+                                        echo 'Page admin';
+                                    }else{ echo '';} ?></a>
     </nav>
 </body>
 </html>

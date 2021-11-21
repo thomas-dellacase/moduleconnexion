@@ -46,6 +46,7 @@ if(isset($_POST['submit'])){
             //var_dump($upuser);
 
             if($stmt->execute()){
+                $_SESSION['user'] = $login;
                 echo $_SESSION['user'] ."Update de profil reussi";
             }
             else{

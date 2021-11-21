@@ -66,7 +66,7 @@ var_dump($_SESSION)
         <a href="deconnection.php">Deco</a>
     </nav>
         <article>
-            <form method="POST" action="connexion.php">
+            <form method="POST" action="index.php">
                 <input type="text" name="login"></input>
                 <input type="password" name="pwd"></input>
                 <button type="submit" name="submit">Connect</button>
