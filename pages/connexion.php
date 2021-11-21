@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="../index.php">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="connexion.php">Connexion</a>
                     <a class="nav-item nav-link" href="inscription.php">Inscription</a>
                     <a class="nav-item nav-link" href="profil.php">Profil</a>
@@ -76,7 +76,7 @@ if(isset($_POST['submit'])){
         </nav>
     </header>
     <main>
-      
+
       <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']. "<br>";} ?></h1>
 
         <article id="artco">
