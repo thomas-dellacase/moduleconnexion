@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
         else{
             $_SESSION['user'] = $login;
             echo "welcome". $_SESSION['user']; 
-            header("Location: index.php");
+            header("Location: ../index.php");
         }
 
     }
