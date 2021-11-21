@@ -1,0 +1,9 @@
+body{
+    min-height:100vh;
+    background-image:url(../ressource/dicewp.jpeg);
+    background-size: cover;
+    background-repeat: norepeat;
+}
+main{
+    min-height:100vh;
+}

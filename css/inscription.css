@@ -1,0 +1,33 @@
+body{
+    min-height:100vh;
+    background-image:url(../ressource/dicewp.jpeg);
+    background-size: cover;
+    background-repeat: norepeat;
+}
+main{
+    min-height:100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#artins{
+    display: flex;
+    background-color: rgba(255,255,255,0.7);
+    border: solid 3px black;
+}
+#divbtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.form-control{
+    margin-bottom: 2%;
+}
+h1{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
