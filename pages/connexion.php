@@ -28,10 +28,10 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($user == true) {
+        if($user == false) {
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
-          //header("Location: ../index.php");
+          header("Location: ../index.php");
         }
         else{
           $failedlog = "failed mauvais mot de passe ou login";
