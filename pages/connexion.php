@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
         if($user == false) {
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
-          var_dump($user)
+          var_dump($user);
           //header("Location: ../index.php");
         }
         else{
