@@ -3,7 +3,7 @@ session_start();
 require("../db/db.php");
 //var_dump($_SESSION['user']);
 
-if($_SESSION['user'] != 'ADMIN'){
+if($_SESSION['user']['login'] != 'ADMIN'){
     header("Location:../index.php");
 }
 
