@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+        var_dump($user);
         if($user == false) {
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
