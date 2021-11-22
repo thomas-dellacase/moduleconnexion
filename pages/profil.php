@@ -27,10 +27,10 @@ if(isset($_POST['submit'])){
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($row['num'] > 0){
-            echo "Ce login est deja prix veuiller en choisir un autre.";
+            $logfailed =  "Ce login est deja prix veuiller en choisir un autre.";
         }
         elseif($_POST['pwd'] != $_POST['confpwd']){
-            echo "Les 2 mots de passe ne sont pas les meme.";
+            $pdwfailed = "Les 2 mots de passe ne sont pas les meme.";
         }
         else{
             $password = password_hash($password, PASSWORD_BCRYPT);
@@ -99,11 +99,12 @@ if(isset($_POST['submit'])){
         echo "Veuillez vous connecter";
         
     }
+    elseif
     else{
         echo "Profil de " . $_SESSION['user'] ."<br>";
-    }
-    if(isset($upok)){
-        echo $upok;
+    }elseif(isset($logfailed)){ echo $logfailed;
+    }elseif(isset($pdwfailed)){echo $pdwfailed;
+    }elseif(isset($upok)){echo $upok;
     }
     ?></h1>
     
