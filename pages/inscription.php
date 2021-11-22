@@ -79,7 +79,7 @@ require("../db/db.php");
                     <a class="nav-item nav-link" href="inscription.php">Inscription</a>
                     <a class="nav-item nav-link" href="profil.php">Profil</a>
                     <a class="nav-item nav-link" href="deconnection.php">Deconnexion</a>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>
