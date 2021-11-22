@@ -28,16 +28,13 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
-        if(count($user) == false) {
-          echo "failed mauvais mot de passe ou login";
-            
-        }
-        else{
+        if($user == true) {
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
           //header("Location: ../index.php");
-          
+        }
+        else{
+          $failedlog = "failed mauvais mot de passe ou login";
         }
 
     }
@@ -79,7 +76,8 @@ if(isset($_POST['submit'])){
     </header>
     <main>
 
-      <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']. "<br>";} ?></h1>
+      <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']. "<br>";
+      }elseif(isset($failedlog)){echo $failedlog;} ?></h1>
 
         <article id="artco">
             <div class="container">
