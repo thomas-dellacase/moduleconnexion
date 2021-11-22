@@ -33,8 +33,8 @@ if(isset($_POST['submit'])){
         if($user == false) {
           //var_dump($user);
           $_SESSION['user'] = $login;
-          echo "welcome". $_SESSION['user']; 
-          //header("Location: ../index.php");
+          //echo "welcome". $_SESSION['user']; 
+          header("Location: ../index.php");
         }
         else{
           $failedlog = "failed mauvais mot de passe ou login";
