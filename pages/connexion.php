@@ -28,12 +28,12 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
+        //var_dump($user);
+
         if($user == false) {
-          var_dump($user);
+          //var_dump($user);
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
-          var_dump(count($user));
           //header("Location: ../index.php");
         }
         else{
