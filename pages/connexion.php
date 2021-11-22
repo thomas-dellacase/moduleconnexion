@@ -28,14 +28,16 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(count($user) == '0') {
-            echo "failed";
+        var_dump($user);
+        if(count($user) == '1') {
+          $_SESSION['user'] = $login;
+          echo "welcome". $_SESSION['user']; 
+          //header("Location: ../index.php");
+            
 
         }
         else{
-            $_SESSION['user'] = $login;
-            echo "welcome". $_SESSION['user']; 
-            header("Location: ../index.php");
+          echo "failed mauvais mot de passe ou login";
         }
 
     }
