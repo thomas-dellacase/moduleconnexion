@@ -26,10 +26,10 @@ require("../db/db.php");
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if($row['num'] > 0){
-                echo "Ce login est deja prix veuiller en choisir un autre.";
+                $logfailed = "Ce login est deja prix veuiller en choisir un autre.";
             }
             elseif($_POST['pwd'] != $_POST['confpwd']){
-                echo "Les 2 mots de passe ne sont pas les meme.";
+                $pdwfailed = "Les 2 mots de passe ne sont pas les meme.";
             }
             else{
                 $password = password_hash($password, PASSWORD_BCRYPT);
@@ -89,7 +89,9 @@ require("../db/db.php");
     </header>
 <main>
     <h1 id="title"><?php if(isset($insok)){ echo $insok;
-                        }elseif(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja inscrits ". $_SESSION['user']. "<br>";}?></h1>
+                        }elseif(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja inscrits ". $_SESSION['user']. "<br>";
+                        }elseif(isset($logfailed)){ echo $logfailed;
+                        }elseif(isset($pdwfailed)){echo $pdwfailed;} ?></h1>
         <article id="artins">
             <div class="container">
                 <h2 class="text-center">Inscription</h2>
