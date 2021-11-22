@@ -21,14 +21,14 @@ if(isset($_POST['submit'])){
 
         $pwd = password_hash($pwd, PASSWORD_BCRYPT);
 
-        $sql = "SELECT count(id) FROM utilisateurs WHERE login = '$login' AND password = '$pwd'";
+        $sql = "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pwd'";
         $stmt = $connect->prepare($sql);
         $stmt->bindValue(':login', $login);
         $stmt->bindValue(':password', $pwd);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($user == false) {
+        if(count($user) == 0) {
             echo "failed";
 
         }
