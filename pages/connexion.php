@@ -29,15 +29,15 @@ if(isset($_POST['submit'])){
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         var_dump($user);
-        if(count($user) == '1') {
+        if(count($user) == false) {
+          echo "failed mauvais mot de passe ou login";
+            
+        }
+        else{
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
           //header("Location: ../index.php");
-            
-
-        }
-        else{
-          echo "failed mauvais mot de passe ou login";
+          
         }
 
     }
