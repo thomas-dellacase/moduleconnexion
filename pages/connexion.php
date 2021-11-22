@@ -32,10 +32,11 @@ if(isset($_POST['submit'])){
         if($user == false) {
           $_SESSION['user'] = $login;
           echo "welcome". $_SESSION['user']; 
-          header("Location: ../index.php");
+          var_dump($user)
+          //header("Location: ../index.php");
         }
         else{
-          $failedlog = "failed mauvais mot de passe ou login". var_dump($user);
+          $failedlog = "failed mauvais mot de passe ou login";
         }
 
     }
