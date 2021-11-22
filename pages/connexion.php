@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(count($user) == 0) {
+        if(count($user) == '0') {
             echo "failed";
 
         }
