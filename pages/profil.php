@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
                     <a class="nav-item nav-link" href="inscription.php">Inscription</a>
                     <a class="nav-item nav-link" href="profil.php">Profil</a>
                     <a class="nav-item nav-link" href="deconnection.php">Deconnexion</a>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>
@@ -94,13 +94,13 @@ if(isset($_POST['submit'])){
 <main>
 
     <h1><?php 
-    if(!(isset($_SESSION['user'])) || $_SESSION['user'] == ''){
+    if(!(isset($_SESSION['user']['login'])) || $_SESSION['user']['login'] == ''){
         //var_dump($_SESSION['user']);
         echo "Veuillez vous connecter";
     }elseif(isset($logfailed)){ echo $logfailed;
     }elseif(isset($pdwfailed)){echo $pdwfailed;
     }elseif(isset($upok)){echo $upok;
-    }else{ echo "Profil de " . $_SESSION['user'] ."<br>";}
+    }else{ echo "Profil de " . $_SESSION['user']['login'] ."<br>";}
     ?></h1>
     
        <article id='artpro'>

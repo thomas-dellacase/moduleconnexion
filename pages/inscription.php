@@ -89,7 +89,7 @@ require("../db/db.php");
     </header>
 <main>
     <h1 id="title"><?php if(isset($insok)){ echo $insok;
-                        }elseif(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja inscrits ". $_SESSION['user']. "<br>";
+                        }elseif(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] != ''){echo "Vous etes deja inscrits ". $_SESSION['user']['login']. "<br>";
                         }elseif(isset($logfailed)){ echo $logfailed;
                         }elseif(isset($pdwfailed)){echo $pdwfailed;} ?></h1>
         <article id="artins">

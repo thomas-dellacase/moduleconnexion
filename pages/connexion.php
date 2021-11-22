@@ -6,40 +6,46 @@ if(!(isset($_SESSION['user']))){
     $_SESSION['user'] = '';
 }
 
-
-
 if(isset($_POST['submit'])){
     try{
-        $connect = new PDO($bdd, $username, $Dbpassword);
-        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $login = $_POST['login'];
-        $pwd = $_POST['pwd'];
-
-        $login =  htmlspecialchars(trim($login));
-        $pdw = htmlspecialchars(trim($pwd));
-
-        $pwd = password_hash($pwd, PASSWORD_BCRYPT);
-
-        $sql = "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pwd'";
-        $stmt = $connect->prepare($sql);
-        $stmt->bindValue(':login', $login);
-        $stmt->bindValue(':password', $pwd);
-        $stmt->execute();
-
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        //var_dump($user);
-
-        if($user == false) {
-          //var_dump($user);
-          $_SESSION['user'] = $login;
-          //echo "welcome". $_SESSION['user']; 
-          header("Location: ../index.php");
+      $connect = new PDO($bdd, $username, $Dbpassword);
+      $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+      $login = $_POST['login'];
+      $pwd = $_POST['pwd'];
+    
+      $login =  htmlspecialchars(trim($login));
+      $pwd = htmlspecialchars(trim($pwd));
+    
+      $hpwd = password_hash($pwd, PASSWORD_BCRYPT);
+    
+      $sql = "SELECT * FROM utilisateurs WHERE login = '$login'";
+      $stmt = $connect->prepare($sql);
+      $stmt->bindValue(':login', $login);
+      $stmt->execute();
+    
+      $user = $stmt->fetch(PDO::FETCH_ASSOC);
+      // var_dump($user);
+    
+      if ($user)
+      {
+        $check_pwd = $user['password'];
+        if (password_verify($pwd, $check_pwd))
+        {
+          $_SESSION['user'] = $user;
+          // echo ('<pre>');
+          // var_dump($_SESSION);
+          // echo ('</pre>');
         }
-        else{
-          $failedlog = "failed mauvais mot de passe ou login";
+        else
+        {
+          $failedlog = "login ou mot de passe incorrect";
         }
-
+      }
+      else
+      {
+        $failedlog = "login ou mot de passe incorrect";
+      }
     }
     catch(PDOException $e){
         $error = "Erreur: ". $e->getMessage();
@@ -79,7 +85,7 @@ if(isset($_POST['submit'])){
     </header>
     <main>
 
-      <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']. "<br>";
+      <h1><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] != ''){echo "Vous etes deja connecter ". $_SESSION['user']['login']. "<br>";
       }elseif(isset($failedlog)){echo $failedlog;} ?></h1>
 
         <article id="artco">
