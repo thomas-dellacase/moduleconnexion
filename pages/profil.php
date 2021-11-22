@@ -97,15 +97,10 @@ if(isset($_POST['submit'])){
     if(!(isset($_SESSION['user'])) || $_SESSION['user'] == ''){
         //var_dump($_SESSION['user']);
         echo "Veuillez vous connecter";
-        
-    }
-    elseif
-    else{
-        echo "Profil de " . $_SESSION['user'] ."<br>";
     }elseif(isset($logfailed)){ echo $logfailed;
     }elseif(isset($pdwfailed)){echo $pdwfailed;
     }elseif(isset($upok)){echo $upok;
-    }
+    }else{ echo "Profil de " . $_SESSION['user'] ."<br>";}
     ?></h1>
     
        <article id='artpro'>
