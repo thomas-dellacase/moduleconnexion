@@ -50,10 +50,22 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="../index.php">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="connexion.php">Connexion</a>
-                    <a class="nav-item nav-link" href="inscription.php">Inscription</a>
-                    <a class="nav-item nav-link" href="profil.php">Profil</a>
-                    <a class="nav-item nav-link" href="deconnection.php">Deconnexion</a>
+                    <?php
+                    if(!(isset($_SESSION['user'])) && $_SESSION['user'] != ""){
+                    echo "<a class='nav-item nav-link' href='connexion.php'>Connexion</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(!(isset($_SESSION['user']))){
+                    echo "<a class='nav-item nav-link' href='inscription.php'>Inscription</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                    echo "<a class='nav-item nav-link' href='profil.php'>Profil</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(isset($_SESSION['user'])){ 
+                    "<a class='nav-item nav-link' href='deconnection.php'>Deconnexion</a>";
+                    }else{ echo "";}?>
                     <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>

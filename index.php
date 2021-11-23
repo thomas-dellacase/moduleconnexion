@@ -20,10 +20,22 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="pages/connexion.php">Connexion</a>
-                    <a class="nav-item nav-link" href="pages/inscription.php">Inscription</a>
-                    <a class="nav-item nav-link" href="pages/profil.php">Profil</a>
-                    <a class="nav-item nav-link" href="pages/deconnection.php">Deconnexion</a>
+                    <?php
+                    if(!(isset($_SESSION['user']))){
+                    echo "<a class='nav-item nav-link' href='pages/connexion.php'>Connexion</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(!(isset($_SESSION['user']))){
+                    echo "<a class='nav-item nav-link' href='pages/inscription.php'>Inscription</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                    echo "<a class='nav-item nav-link' href='pages/profil.php'>Profil</a>";
+                    }else{ echo "";}?>
+                    <?php
+                    if(isset($_SESSION['user'])){ 
+                    echo "<a class='nav-item nav-link' href='pages/deconnection.php'>Deconnexion</a>";
+                    }else{ echo "";}?>
                     <a class="nav-item nav-link" href="pages/admin.php"><?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'ADMIN'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
@@ -33,6 +45,8 @@ session_start();
     </header>
 <body>
     <main>
+      <h1><?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
+        echo "Bienvenue ". $_SESSION['user']['login'];} ?> </h1>
         <article>
 
         </article>

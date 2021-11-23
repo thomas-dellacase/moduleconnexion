@@ -6,4 +6,10 @@ body{
 }
 main{
     min-height:100vh;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+h1{
+    color: white;
 }
