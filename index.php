@@ -36,7 +36,7 @@ session_start();
                     if(isset($_SESSION['user'])){ 
                     echo "<a class='nav-item nav-link' href='pages/deconnection.php'>Deconnexion</a>";
                     }else{ echo "";}?>
-                    <a class="nav-item nav-link" href="pages/admin.php"><?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="pages/admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>
