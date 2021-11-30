@@ -3,7 +3,6 @@ session_start();
 require("../db/db.php");
 
 
-
 if(isset($_POST['submit'])){
     try{
       if(!(isset($_SESSION['user']))){
@@ -91,7 +90,7 @@ if(isset($_POST['submit'])){
                     if(isset($_SESSION['user'])){ 
                     "<a class='nav-item nav-link' href='deconnection.php'>Deconnexion</a>";
                     }else{ echo "";}?>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'admin'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>

@@ -49,7 +49,7 @@ require("../db/db.php");
                 }
             }
 
-        }
+        } 
         catch(PDOException $e){
             $error = "Erreur: ". $e->getMessage();
             echo $error;
@@ -68,8 +68,7 @@ require("../db/db.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Inscripiption</title>
 </head>
-<body>
-    <header>
+<body>  
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -91,13 +90,12 @@ require("../db/db.php");
                     if(isset($_SESSION['user'])){ 
                     "<a class='nav-item nav-link' href='deconnection.php'>Deconnexion</a>";
                     }else{ echo "";}?>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'admin'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>
             </div>
         </nav>
-    </header>
     </header>
 <main>
     <h1 id="title"><?php if(isset($insok)){ echo $insok;

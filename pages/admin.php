@@ -66,7 +66,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if(isset($_SESSION['user'])){ 
                     echo "<a class='nav-item nav-link' href='deconnection.php'>Deconnexion</a>";
                     }else{ echo "";}?>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'admin'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>

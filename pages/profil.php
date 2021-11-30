@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($row['num'] > 0){
-            $logfailed =  "Ce login est deja prix veuiller en choisir un autre.";
+            $logfailed =  "Ce login est deja pris veuiller en choisir un autre.";
         }
         elseif($_POST['pwd'] != $_POST['confpwd']){
             $pdwfailed = "Les 2 mots de passe ne sont pas les meme.";
@@ -121,7 +121,7 @@ if(isset($_POST['submit'])){
                     if(isset($_SESSION['user'])){ 
                     echo "<a class='nav-item nav-link' href='deconnection.php'>Deconnexion</a>";
                     }else{ echo "";}?>
-                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'ADMIN'){ 
+                    <a class="nav-item nav-link" href="admin.php"><?php if(isset($_SESSION['user']['login']) && $_SESSION['user']['login'] == 'admin'){ 
                                                                                     echo 'Page admin';
                                                                                 }else{ echo '';} ?></a>
                 </div>
