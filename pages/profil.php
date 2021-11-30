@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
 
         if(empty($_POST['login'])){
             $login = $_SESSION['user']['login'];
+            $logfailed = '';
         }
         if(empty($_POST['prenom'])){
             $prenom = $_SESSION['user']['prenom'];
@@ -42,7 +43,7 @@ if(isset($_POST['submit'])){
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($row['num'] > 0){
+        if($row['num'] > 0 && $_POST['login'] != $oldlogin){
             $logfailed =  "Ce login est deja pris veuiller en choisir un autre.";
         }
         elseif($_POST['pwd'] != $_POST['confpwd']){
